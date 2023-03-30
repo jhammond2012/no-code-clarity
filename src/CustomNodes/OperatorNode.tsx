@@ -1,24 +1,40 @@
-import React, { memo } from 'react';
-import { Handle, Position } from 'reactflow';
+import React, { memo } from "react";
+import { Handle, Position } from "reactflow";
 
+type OperatorNodeProps = {
+  data: {
+    label: string;
+  };
+  isConnectable: boolean;
+};
 
-export default memo(({ data, isConnectable }) => {
+export default memo(({ data, isConnectable }: OperatorNodeProps) => {
   return (
-    <div className='bg-white rounded-md overflow-hidden'>
-      <div
-        className='bg-[#7a40ee] w-full text-white text-xs font-bold p-2 pl-6'
-      >Operator Node</div>
-      <div className='p-2 pt-0'>
-        <select name="operator_type" id="" className='w-full outline-none mt-2 text-xs'>
-          <option value="" disabled selected>Select an operator</option>
+    <div className="bg-white rounded-md overflow-hidden">
+      <div className="bg-[#7a40ee] w-full text-white text-xs font-bold p-2 pl-6">
+        Operator Node
+      </div>
+      <div className="p-2 pt-0">
+        <select
+          name="operator_type"
+          id=""
+          className="w-full outline-none mt-2 text-xs"
+        >
+          <option value="" disabled selected>
+            Select an operator
+          </option>
           <option value="* (multiply)">* (multiply)</option>
           <option value="+ (add)">+ (add)</option>
           <option value="- (subtract)">- (subtract)</option>
           <option value="/ (divide)">/ (divide)</option>
           <option value="< (less than)">&lt; (less than)</option>
-          <option value="<= (less than or equal)">&lt;= (less than or equal)</option>
+          <option value="<= (less than or equal)">
+            &lt;= (less than or equal)
+          </option>
           <option value="> (greater than)">&gt; (greater than)</option>
-          <option value=">= (greater than or equal)">&gt;= (greater than or equal)</option>
+          <option value=">= (greater than or equal)">
+            &gt;= (greater than or equal)
+          </option>
           <option value="and">and</option>
           <option value="append">append</option>
           <option value="as-contract">as-contract</option>
@@ -44,7 +60,9 @@ export default memo(({ data, isConnectable }) => {
           <option value="define-data-var">define-data-var</option>
           <option value="define-fungible-token">define-fungible-token</option>
           <option value="define-map">define-map</option>
-          <option value="define-non-fungible-token">define-non-fungible-token</option>
+          <option value="define-non-fungible-token">
+            define-non-fungible-token
+          </option>
           <option value="define-private">define-private</option>
           <option value="define-public">define-public</option>
           <option value="define-read-only">define-read-only</option>
@@ -133,20 +151,34 @@ export default memo(({ data, isConnectable }) => {
         </select>
       </div>
 
-      <div className='text-xs pr-6 pb-2 text-right'>Target</div>
-      
+      <div className="text-xs pr-6 pb-2 text-right">Target</div>
+
       <Handle
         type="target"
         position={Position.Left}
         id="b"
-        style={{ bottom: 'auto', left: 10, top: 16, background: '#555', width: 8, height: 8 }}
+        style={{
+          bottom: "auto",
+          left: 10,
+          top: 16,
+          background: "#555",
+          width: 8,
+          height: 8,
+        }}
         isConnectable={isConnectable}
       />
       <Handle
         type="target"
         position={Position.Right}
         id="operator_target"
-        style={{ top: 'auto', right: 10, bottom: 8, background: '#555', width: 8, height: 8 }}
+        style={{
+          top: "auto",
+          right: 10,
+          bottom: 8,
+          background: "#555",
+          width: 8,
+          height: 8,
+        }}
         isConnectable={isConnectable}
       />
     </div>
